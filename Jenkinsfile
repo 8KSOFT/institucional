@@ -11,12 +11,12 @@ pipeline {
         }
          stage('Remover docker app') {
             steps {
-                        sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft/institucional; sudo docker compose down --rmi local"'
+                        sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft; sudo docker compose down --rmi local"'
             }
         }
         stage('Build e Inicialização') {
             steps {
-                        sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft/institucional; docker compose up --build -d"'
+                        sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft; docker compose up --build -d"'
             }
         }
         stage('Avisar') {
