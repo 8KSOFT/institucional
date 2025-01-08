@@ -14,7 +14,7 @@ COPY . .
 # COPY --from=base /app/node_modules node_modules
 # COPY --from=base /app/package*.json ./
 
-RUN echo "NEXT_PUBLIC_BACKEND_URL=http://institucional-api.8ksoft.com" > .env.local
+RUN echo "NEXT_PUBLIC_BACKEND_URL=http://institucional-api.8ksoft:8532" > .env.local
 
 ENV NODE_ENV=production
 
