@@ -22,4 +22,4 @@ RUN npm run build
 
 EXPOSE 8530
 
-CMD ["pm2-runtime", "start", "npm", "--name", "8ksoft-novo", "--", "run", "build"]
+CMD ["pm2-runtime", "start", "npm", "--name", "institucional-8ksoft", "--", "run", "build"]
