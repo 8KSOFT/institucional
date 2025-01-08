@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Baixar fonte') {
             steps {
-              sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft; sudo docker compose down --rmi local"'
                     sh 'ssh ubuntu@172.17.0.1 "rm -rf /home/ubuntu/apps/institucional-8ksoft"'
                     sh 'ssh ubuntu@172.17.0.1 "mkdir -p /home/ubuntu/apps/institucional-8ksoft"'
                     sh 'scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft'
