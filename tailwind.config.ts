@@ -27,9 +27,35 @@ const config: Config = {
             opacity: '0.2',
           },
         },
+        'binary-fade': {
+          '0%, 100%': {
+            opacity: '0.2',
+            transform: 'scale(0.95)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
+        blink: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(0)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'translateY(-10px)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'translateY(0)',
+          },
+        },
       },
       animation: {
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'binary-fade': 'binary-fade 3s ease-in-out infinite',
+        blink: 'blink 1.5s infinite ease-in-out',
       },
     },
   },
