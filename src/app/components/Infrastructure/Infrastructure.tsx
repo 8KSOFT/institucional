@@ -40,7 +40,7 @@ export default function Infrastructure() {
           {features.map((feature, index) => (
             <FadeIn key={index} direction="up" delay={index * 0.1}>
               <div
-                className="bg-background/50 p-6 rounded-lg border border-primary/20 
+                className="bg-background/50 h-full p-6 rounded-lg border border-primary/20 
                             hover:border-primary/40 transition-all"
               >
                 <div className="flex items-center mb-4">

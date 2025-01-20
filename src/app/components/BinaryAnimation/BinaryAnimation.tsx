@@ -1,56 +1,69 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function BinaryAnimation() {
-  const [numbers, setNumbers] = useState<number[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const updateNumbers = () => {
-      setNumbers(Array.from({ length: 24 }, () => Math.round(Math.random())));
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Tamanho fixo para o canvas
+    canvas.width = 400; // Largura fixa
+    canvas.height = 300; // Altura fixa
+
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const rows = Math.floor(canvas.height / fontSize);
+
+    const grid = Array(columns)
+      .fill(null)
+      .map(() =>
+        Array(rows)
+          .fill(null)
+          .map(() => ({
+            value: Math.random() < 0.5 ? '0' : '1',
+            opacity: Math.random(),
+            fadeDirection: Math.random() < 0.5 ? -1 : 1,
+            fadeSpeed: 0.01 + Math.random() * 0.01,
+          }))
+      );
+
+    function draw() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let x = 0; x < columns; x++) {
+        for (let y = 0; y < rows; y++) {
+          const cell = grid[x][y];
+
+          cell.opacity += cell.fadeDirection * cell.fadeSpeed;
+
+          if (cell.opacity <= 0 || cell.opacity >= 1) {
+            cell.fadeDirection *= -1;
+            if (cell.opacity <= 0 && Math.random() < 0.3) {
+              cell.value = cell.value === '0' ? '1' : '0';
+            }
+          }
+
+          cell.opacity = Math.max(0, Math.min(1, cell.opacity));
+
+          ctx.fillStyle = `rgba(173, 255, 105, ${cell.opacity * 0.5})`;
+          ctx.fillText(cell.value, x * fontSize, (y + 1) * fontSize);
+        }
+      }
+    }
+
+    const interval = setInterval(draw, 33);
+
+    return () => {
+      clearInterval(interval);
     };
-
-    updateNumbers();
-    const interval = setInterval(updateNumbers, 2000);
-
-    return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="relative w-64 h-40">
-      <div
-        className="absolute inset-0 bg-zinc-800 
-                    [clip-path:polygon(15%_0,_100%_0,_100%_100%,_0_100%,_0_15%)]"
-      >
-        <div
-          className="absolute top-4 right-4 w-32 h-32
-                      bg-gradient-to-br from-[#dab245] to-[#f5d481] rounded-lg"
-        >
-          <div
-            className="absolute inset-2 
-                       border-2 border-black/20 rounded-lg
-                       before:absolute before:content-[''] before:w-1/2 before:h-1/2
-                       before:border-2 before:border-black/20 before:rounded-lg
-                       before:top-2 before:left-2"
-          >
-            <div className="absolute inset-0 grid grid-cols-6 grid-rows-4 gap-0.5 p-1">
-              {numbers.map((num, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center font-mono text-[8px]
-                           transition-all duration-1000 ease-in-out text-black/60"
-                  style={{
-                    opacity: num ? '1' : '0.2',
-                    transform: num ? 'scale(1)' : 'scale(0.95)',
-                    transitionDelay: `${Math.random() * 500}ms`,
-                  }}
-                >
-                  {num}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <canvas ref={canvasRef} className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent" />;
 }

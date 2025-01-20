@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <section className="container mx-auto px-4 pt-32 pb-20">
       <ClientOnly>
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-8">
-          <div className="text-left md:w-1/2">
+        <div className="h-[400px] flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto">
+          <div className="h-full text-left md:w-1/2">
             <FadeIn direction="up">
               <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">
                 8KSOFT
@@ -39,8 +39,11 @@ export default function Hero() {
               </div>
             </FadeIn>
           </div>
-          <FadeIn direction="left" delay={0.2} className="md:w-1/2 flex justify-center">
-            <BinaryAnimation />
+          <FadeIn direction="up" delay={0.3} className="md:w-1/2 relative">
+            <div className="relative h-full flex justify-start">
+              <BinaryAnimation />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background via-background/80 to-transparent" />
+            </div>
           </FadeIn>
         </div>
       </ClientOnly>

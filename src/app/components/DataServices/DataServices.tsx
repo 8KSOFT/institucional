@@ -18,7 +18,7 @@ export default function DataServices() {
           <div className="grid md:grid-cols-2 gap-8">
             <FadeIn direction="left">
               <motion.div
-                className="bg-background/50 p-8 rounded-lg border border-primary/20"
+                className="bg-background/50 p-8 rounded-lg border border-primary/20 h-full"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
@@ -73,7 +73,7 @@ export default function DataServices() {
 
             <FadeIn direction="right">
               <motion.div
-                className="bg-background/50 p-8 rounded-lg border border-primary/20"
+                className="bg-background/50 p-8 rounded-lg border border-primary/20 h-full"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
