@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #adff69;
+  --primary-color: #BFD83E;
   --background-color: #1a1a1a;
   --text-color: #ffffff;
   --card-background: rgba(95, 90, 90, 0.1);

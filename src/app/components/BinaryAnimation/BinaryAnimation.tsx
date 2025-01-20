@@ -52,7 +52,7 @@ export default function BinaryAnimation() {
 
           cell.opacity = Math.max(0, Math.min(1, cell.opacity));
 
-          ctx.fillStyle = `rgba(173, 255, 105, ${cell.opacity * 0.5})`;
+          ctx.fillStyle = `rgba(191, 216, 62, ${cell.opacity * 0.5})`;
           ctx.fillText(cell.value, x * fontSize, (y + 1) * fontSize);
         }
       }

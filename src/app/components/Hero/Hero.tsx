@@ -2,17 +2,18 @@
 import ClientOnly from '../ClientOnly/ClientOnly';
 import FadeIn from '../Animation/FadeIn';
 import BinaryAnimation from '../BinaryAnimation/BinaryAnimation';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section className="container mx-auto px-4 pt-32 pb-20">
       <ClientOnly>
         <div className="h-[400px] flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto">
-          <div className="h-full text-left md:w-1/2">
+          <div className="pt-5 h-full flex flex-col justify-between text-left md:w-1/2">
             <FadeIn direction="up">
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">
-                8KSOFT
-              </h1>
+              <div className="flex items-center justify-start text-7xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">
+                <Image src="/logo.png" alt="8KSOFT" width={150} height={150} />
+              </div>
             </FadeIn>
             <FadeIn direction="up" delay={0.2}>
               <h2 className="text-2xl md:text-3xl text-primary/80">
