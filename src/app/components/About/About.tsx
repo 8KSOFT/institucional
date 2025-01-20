@@ -21,7 +21,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-8 max-sm:gap-0">
                 {['Setores de Expertise', 'Soluções Completas', 'Compromisso com Resultados'].map((title) => (
                   <motion.div
                     key={title}
@@ -29,7 +29,7 @@ export default function About() {
                     whileHover={{ y: -5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg mb-4 flex items-center justify-center max-sm:hidden">
                       {/* ... ícones ... */}
                     </div>
                     <h3 className="text-xl font-semibold mb-3 text-primary">{title}</h3>
