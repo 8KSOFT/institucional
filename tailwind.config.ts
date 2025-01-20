@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       clipPath: {
-        'polygon-cut': 'polygon(20px 0, 100% 0, 100% calc(100% - 200px), calc(100% - 200px) 100%, 0 100%, 0 20px)',
+        'polygon-cut': 'polygon(20px 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%, 0 20px)',
       },
       colors: {
         primary: 'var(--primary-color)',

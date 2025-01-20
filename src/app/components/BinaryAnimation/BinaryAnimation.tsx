@@ -66,8 +66,11 @@ export default function BinaryAnimation() {
   }, []);
 
   return (
-    <div>
-      <canvas ref={canvasRef} className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent" />
+    <div className="w-full flex items-center justify-center">
+      <canvas
+        ref={canvasRef}
+        className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent max-sm:w-full max-sm:h-[200px]"
+      />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Header() {
   return (
-    <header className="fixed w-full top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
+    <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
       <nav className="h-[60px] container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-primary flex items-center">
           <Image src="/logo.png" alt="8KSOFT" width={50} height={50} />
