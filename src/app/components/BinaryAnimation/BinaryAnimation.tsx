@@ -65,5 +65,9 @@ export default function BinaryAnimation() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent" />;
+  return (
+    <div>
+      <canvas ref={canvasRef} className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent" />
+    </div>
+  );
 }

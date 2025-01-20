@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="container mx-auto px-4 pt-32 pb-20">
       <ClientOnly>
         <div className="h-[400px] flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto">
-          <div className="pt-5 h-full flex flex-col justify-between text-left md:w-1/2">
+          <div className="pt-5 w-full h-full flex flex-col justify-between text-left md:w-1/2">
             <FadeIn direction="up">
               <div className="flex items-center justify-start text-7xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">
                 <Image src="/logo.png" alt="8KSOFT" width={150} height={150} />
@@ -41,7 +41,7 @@ export default function Hero() {
             </FadeIn>
           </div>
           <FadeIn direction="up" delay={0.3} className="md:w-1/2 relative">
-            <div className="relative h-full flex justify-start">
+            <div className="w-full relative h-full flex justify-start">
               <BinaryAnimation />
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background via-background/80 to-transparent" />
             </div>
