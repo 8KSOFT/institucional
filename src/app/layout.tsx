@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: '8KSoft - Technology Consulting',
   description: 'Consultoria em tecnologia e desenvolvimento de software',
   icons: {
-    icon: '/favicon.ico',
+    icon: './favicon.ico',
   },
 };
 
