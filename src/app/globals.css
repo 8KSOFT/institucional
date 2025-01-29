@@ -4,7 +4,7 @@
 
 :root {
   --primary-color: #BFD83E;
-  --background-color: #1a1a1a;
+  --background-color: rgb(26, 26, 26);
   --text-color: #ffffff;
   --card-background: rgba(95, 90, 90, 0.1);
 }

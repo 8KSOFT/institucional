@@ -1,50 +1,71 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
+const menuItems = [
+  {
+    label: 'Serviços',
+    href: '#services',
+  },
+  {
+    label: 'Desenvolvimento',
+    href: '#development',
+  },
+  {
+    label: 'Infraestrutura',
+    href: '#infrastructure',
+  },
+  {
+    label: 'Dados',
+    href: '#data',
+  },
+  {
+    label: 'Sobre',
+    href: '#about',
+  },
+  {
+    label: 'Contato',
+    href: '#contact',
+  },
+];
 
 function Header() {
+  const router = useRouter();
+
+  const onHeroClick = () => {
+    router.push('/');
+    
+    const heroSection = document.getElementById('hero'); 
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
-      <nav className="h-[60px] container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="h-[60px] text-text container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-primary flex items-center">
           <Image src="/logo.png" alt="8KSOFT" width={50} height={50} />
-          <span className="ml-2">8KSOFT</span>
+          <a onClick={onHeroClick} href="#hero"><span className="ml-2">8KSOFT</span></a>
         </div>
         <ul className="hidden md:flex space-x-8">
-          <li>
-            <a href="#services" className="hover:text-primary transition-colors">
-              Serviços
-            </a>
-          </li>
-          <li>
-            <a href="#development" className="hover:text-primary transition-colors">
-              Desenvolvimento
-            </a>
-          </li>
-          <li>
-            <a href="#infrastructure" className="hover:text-primary transition-colors">
-              Infraestrutura
-            </a>
-          </li>
-          <li>
-            <a href="#data" className="hover:text-primary transition-colors">
-              Dados
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-primary transition-colors">
-              Sobre
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Contato
-            </a>
-          </li>
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className={`${
+                  item.href === '#contact'
+                    ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'
+                    : 'hover:text-primary transition-colors'
+                }`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
-
         {/* Menu Mobile - Pode ser expandido em um componente separado */}
         <button className="md:hidden text-primary">
           <svg

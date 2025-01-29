@@ -1,4 +1,3 @@
-'use client';
 import ClientOnly from '../ClientOnly/ClientOnly';
 import FadeIn from '../Animation/FadeIn';
 import BinaryAnimation from '../BinaryAnimation/BinaryAnimation';
@@ -6,10 +5,10 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="container mx-auto px-4 pt-20 md:pt-32 md:pb-20 max-sm:w-full">
-      <ClientOnly>
+    <ClientOnly>
+      <section id="hero" className="container mx-auto px-4 pt-20 md:pt-32 md:pb-20 max-sm:w-full">
         <div className="min-h-[400px] flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto max-sm:w-full">
-          <div className="pt-5 w-full h-full flex flex-col justify-between text-left md:w-1/2">
+          <div className="pt-5 w-full h-full flex flex-col justify-between text-left md:w-1/2 z-20">
             <FadeIn direction="up">
               <div className="flex items-center justify-start text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text max-sm:w-full max-sm:justify-center">
                 <Image
@@ -43,17 +42,23 @@ export default function Hero() {
                 >
                   Nossos Serviços
                 </a>
+                <a
+                  href="/projects"
+                  className="px-4 md:px-6 py-2 md:py-3 text-sm md:text-base border border-primary/20 text-primary rounded-lg hover:border-primary/40 transition-colors z-10"
+                >
+                  Nossos Projetos
+                </a>
               </div>
             </FadeIn>
           </div>
           <FadeIn direction="up" delay={0.3} className="mt-8 md:mt-0 md:w-1/2 relative max-sm:w-full">
-            <div className="relative w-full h-full flex items-center justify-center max-sm:w-screen max-sm:mt-[-100px]">
+            <div className="relative w-full h-full flex items-center justify-center max-sm:w-screen max-sm:mt-[-100px] z-10">
               <BinaryAnimation />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background via-background/80 to-transparent max-sm:bg-gradient-to-b max-sm:via-background max-sm:to-transparent" />
+              <div className="absolute inset-0 -left-16 pointer-events-none bg-gradient-to-r from-background  to-transparent max-sm:bg-gradient-to-b max-sm:via-background max-sm:to-transparent" />
             </div>
           </FadeIn>
         </div>
-      </ClientOnly>
-    </section>
+      </section>
+    </ClientOnly>
   );
 }

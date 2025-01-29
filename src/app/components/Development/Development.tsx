@@ -102,7 +102,7 @@ export default function Development() {
         <FadeIn direction="up" delay={0.4}>
           <div className="mt-12 text-center">
             <a
-              href="#projects"
+              href="/projects"
               className="inline-block px-6 py-3 border border-primary/20 text-primary rounded-lg 
                         hover:border-primary/40 transition-colors"
             >

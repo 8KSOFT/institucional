@@ -5,6 +5,9 @@ export default function BinaryAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // Verifica se está no cliente
+    if (typeof window === 'undefined') return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -12,8 +15,8 @@ export default function BinaryAnimation() {
     if (!ctx) return;
 
     // Tamanho fixo para o canvas
-    canvas.width = 400; // Largura fixa
-    canvas.height = 300; // Altura fixa
+    canvas.width = 300; // Largura fixa
+    canvas.height = 200; // Altura fixa
 
     const fontSize = 14;
     const columns = Math.floor(canvas.width / fontSize);
@@ -69,7 +72,10 @@ export default function BinaryAnimation() {
     <div className="w-full flex items-center justify-center">
       <canvas
         ref={canvasRef}
-        className="w-[600px] h-[400px] pt-4 rounded-lg bg-transparent max-xl:w-full max-sm:h-[300px]"
+        className="w-[500px] h-[400px] pt-4 rounded-lg bg-transparent max-xl:w-full max-sm:h-[300px]"
+        style={{
+          clipPath: 'polygon(28% 0%, 80% 0%, 100% 0%, 100% 72%, 72% 100%, 20% 100%, 0% 100%, 0% 28%)',
+        }}
       />
     </div>
   );
