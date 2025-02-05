@@ -1,10 +1,12 @@
+import Image from 'next/image';
+
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-zinc-800">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">8KSOFT</h3>
+          <div className="flex flex-col items-start justify-start gap-4">
+            <Image src="/images/logotipos/LOGOTIPO-8KSOFT-02.png" alt="8KSOFT" width={150} height={100} />
             <p className="text-gray-400">Tecnologia segura, robusta e inovadora para o seu negócio.</p>
           </div>
 

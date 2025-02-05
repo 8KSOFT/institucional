@@ -12,7 +12,7 @@ export default function Hero() {
             <FadeIn direction="up">
               <div className="flex items-center justify-start text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text max-sm:w-full max-sm:justify-center">
                 <Image
-                  src="/logo.png"
+                  src="/images/logotipos/LOGOTIPO-8KSOFT-03.png"
                   alt="8KSOFT"
                   width={150}
                   height={100}

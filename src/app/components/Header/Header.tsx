@@ -36,8 +36,8 @@ function Header() {
 
   const onHeroClick = () => {
     router.push('/');
-    
-    const heroSection = document.getElementById('hero'); 
+
+    const heroSection = document.getElementById('hero');
     if (heroSection) {
       heroSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -47,8 +47,9 @@ function Header() {
     <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
       <nav className="h-[60px] text-text container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-primary flex items-center">
-          <Image src="/logo.png" alt="8KSOFT" width={50} height={50} />
-          <a onClick={onHeroClick} href="#hero"><span className="ml-2">8KSOFT</span></a>
+          <a onClick={onHeroClick} href="#hero">
+            <Image src="/images/logotipos/LOGOTIPO-8KSOFT-01.png" alt="8KSOFT" width={80} height={50} className="w-[80px] h-[50px]" />
+          </a>
         </div>
         <ul className="hidden md:flex space-x-8">
           {menuItems.map((item) => (
