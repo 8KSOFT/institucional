@@ -62,12 +62,12 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="text-gray-400">
                 <a href="mailto:contato@8ksoft.com.br" className="hover:text-primary transition-colors">
-                  contato@8ksoft.com.br
+                  contato@8ksoft.com
                 </a>
               </li>
               <li className="text-gray-400">
                 <a href="tel:+551199999999" className="hover:text-primary transition-colors">
-                  (11) 9999-9999
+                  (51) 9-8587-5908
                 </a>
               </li>
             </ul>

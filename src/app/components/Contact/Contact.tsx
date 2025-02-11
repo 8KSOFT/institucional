@@ -39,7 +39,7 @@ export default function Contact() {
                       href="mailto:contato@8ksoft.com.br"
                       className="text-gray-300 hover:text-primary transition-colors"
                     >
-                      contato@8ksoft.com.br
+                      contato@8ksoft.com
                     </a>
                   </motion.div>
 
@@ -59,7 +59,7 @@ export default function Contact() {
                       </svg>
                     </div>
                     <a href="tel:+551199999999" className="text-gray-300 hover:text-primary transition-colors">
-                      (11) 9999-9999
+                    (51) 9-8587-5908
                     </a>
                   </motion.div>
                 </div>

@@ -4,39 +4,94 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-const menuItems = [
-  {
-    label: 'Serviços',
-    href: '#services',
-  },
-  {
-    label: 'Desenvolvimento',
-    href: '#development',
-  },
-  {
-    label: 'Infraestrutura',
-    href: '#infrastructure',
-  },
-  {
-    label: 'Dados',
-    href: '#data',
-  },
-  {
-    label: 'Sobre',
-    href: '#about',
-  },
-  {
-    label: 'Contato',
-    href: '#contact',
-  },
-];
-
 function Header() {
   const router = useRouter();
 
-  const onHeroClick = () => {
-    router.push('/');
+  const menuItems = [
+    {
+      label: 'Serviços',
+      href: '#services',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/');
+        }
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+    {
+      label: 'Desenvolvimento',
+      href: '#development',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/#development');
+        }
+        const developmentSection = document.getElementById('development');
+        if (developmentSection) {
+          developmentSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+    {
+      label: 'Infraestrutura',
+      href: '#infrastructure',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/#infrastructure');
+        }
+        const infrastructureSection = document.getElementById('infrastructure');
+        if (infrastructureSection) {
+          infrastructureSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+    {
+      label: 'Dados',
+      href: '#data',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/#data');
+        }
+        const dataSection = document.getElementById('data');
+        if (dataSection) {
+          dataSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+    {
+      label: 'Sobre',
+      href: '#about',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/#about');
+        }
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+    {
+      label: 'Contato',
+      href: '#contact',
+      redirect: () => {
+        if (window.location.pathname !== '/') {
+          router.push('/#contact');
+        }
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+    },
+  ];
 
+  const onHeroClick = () => {
+    if (window.location.pathname !== '/') {
+      router.push('/#hero');
+    }
     const heroSection = document.getElementById('hero');
     if (heroSection) {
       heroSection.scrollIntoView({ behavior: 'smooth' });
@@ -46,17 +101,23 @@ function Header() {
   return (
     <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
       <nav className="h-[60px] text-text container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-primary flex items-center">
-          <a onClick={onHeroClick} href="#hero">
-            <Image src="/images/logotipos/LOGOTIPO-8KSOFT-01.png" alt="8KSOFT" width={80} height={50} className="w-[80px] h-[50px]" />
+        <div className="text-2xl font-bold text-primary flex items-center cursor-pointer">
+          <a onClick={onHeroClick}>
+            <Image
+              src="/images/logotipos/LOGOTIPO-8KSOFT-02.png"
+              alt="8KSOFT"
+              width={80}
+              height={18}
+              className="w-[80px] h-[18px]"
+            />
           </a>
         </div>
         <ul className="hidden md:flex space-x-8">
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
-                href={item.href}
-                className={`${
+                onClick={item.redirect}
+                className={`cursor-pointer ${
                   item.href === '#contact'
                     ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'
                     : 'hover:text-primary transition-colors'
