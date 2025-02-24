@@ -31,7 +31,7 @@ function ProjectModal({ project, onClose }: { project: IProject; onClose: () => 
           <div className="relative h-64 md:h-96">
             {project.images && (
               <>
-                <Image src={project.images[currentImage]} alt={project.name} fill className="object-cover" />
+                <Image src={project.images[currentImage]} alt={project.name} fill className="object-contain" />
                 <div className="absolute bottom-4 right-4 flex gap-2">
                   {project.images.map((_, index) => (
                     <button

@@ -6,6 +6,10 @@ interface FadeInProps {
   children: ReactNode;
   direction?: 'up' | 'down' | 'left' | 'right';
   delay?: number;
+  viewport?: {
+    once: boolean;
+    amount: number;
+  };
   className?: string;
 }
 
