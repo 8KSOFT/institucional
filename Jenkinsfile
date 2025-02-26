@@ -18,11 +18,11 @@ pipeline {
                         
                         // Criar arquivo .env.local no servidor
                         sh """
-                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env.local"
+                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env"
                         """
                         
                         // Verificar conteúdo do arquivo
-                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env.local'"
+                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env'"
                     }
                 }
             }
