@@ -1,6 +1,7 @@
 interface IProject {
   name: string;
   description: string;
+  client: string;
   image: string;
   tags: string[];
   url: string;

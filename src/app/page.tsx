@@ -6,6 +6,7 @@ import Services from './components/ServicesComponent/Services';
 import Development from './components/Development/Development';
 import DataServices from './components/DataServices/DataServices';
 import Infrastructure from './components/Infrastructure/Infrastructure';
+import ClientsComponent from './components/ClientsComponent/ClientsComponent';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       
       <main>
         <Hero />
+        <ClientsComponent />
         <Services />
         <Development />
         <Infrastructure />

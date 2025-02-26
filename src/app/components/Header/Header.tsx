@@ -1,102 +1,81 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 function Header() {
   const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && pathname === '/') {
+      setTimeout(() => {
+        const element = document.getElementById(hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    }
+  }, [pathname]);
+
+  const handleNavigation = async (sectionId: string) => {
+    if (pathname !== '/') {
+      router.push('/');
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   const menuItems = [
     {
+      label: 'Clientes',
+      href: '#clients',
+      onClick: () => handleNavigation('clients'),
+    },
+    {
       label: 'Serviços',
       href: '#services',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/');
-        }
-        const servicesSection = document.getElementById('services');
-        if (servicesSection) {
-          servicesSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('services'),
     },
     {
       label: 'Desenvolvimento',
       href: '#development',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/#development');
-        }
-        const developmentSection = document.getElementById('development');
-        if (developmentSection) {
-          developmentSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('development'),
     },
     {
       label: 'Infraestrutura',
       href: '#infrastructure',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/#infrastructure');
-        }
-        const infrastructureSection = document.getElementById('infrastructure');
-        if (infrastructureSection) {
-          infrastructureSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('infrastructure'),
     },
     {
       label: 'Dados',
       href: '#data',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/#data');
-        }
-        const dataSection = document.getElementById('data');
-        if (dataSection) {
-          dataSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('data'),
     },
     {
       label: 'Sobre',
       href: '#about',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/#about');
-        }
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-          aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('about'),
     },
     {
       label: 'Contato',
       href: '#contact',
-      redirect: () => {
-        if (window.location.pathname !== '/') {
-          router.push('/#contact');
-        }
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
+      onClick: () => handleNavigation('contact'),
     },
   ];
 
-  const onHeroClick = () => {
-    if (window.location.pathname !== '/') {
-      router.push('/#hero');
-    }
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const onHeroClick = () => handleNavigation('hero');
 
   return (
     <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
@@ -116,7 +95,7 @@ function Header() {
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
-                onClick={item.redirect}
+                onClick={item.onClick}
                 className={`cursor-pointer ${
                   item.href === '#contact'
                     ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'

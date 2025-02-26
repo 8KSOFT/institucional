@@ -6,10 +6,6 @@ interface FadeInProps {
   children: ReactNode;
   direction?: 'up' | 'down' | 'left' | 'right';
   delay?: number;
-  viewport?: {
-    once: boolean;
-    amount: number;
-  };
   className?: string;
 }
 
@@ -33,14 +29,21 @@ export default function FadeIn({ children, direction = 'up', delay = 0, classNam
         y: 0,
       }}
       viewport={{
-        margin: '-100px',
+        once: false,
+        amount: 0.3,
+        margin: '-40px',
       }}
       transition={{
-        duration: 0.7,
-        ease: 'easeOut',
+        duration: 0.5,
+        ease: [0.21, 0.47, 0.32, 0.98],
         delay: delay,
       }}
       className={className}
+      style={{
+        willChange: 'transform',
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+      }}
     >
       {children}
     </motion.div>

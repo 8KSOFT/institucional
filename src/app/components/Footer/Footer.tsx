@@ -78,12 +78,12 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">© 2024 8KSOFT. Todos os direitos reservados.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 LinkedIn
               </a>
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 GitHub
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
