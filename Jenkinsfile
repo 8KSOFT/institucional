@@ -19,9 +19,6 @@ pipeline {
                         writeFile file: '.env', text: """
                             NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
                         """
-
-                        // Enviar o arquivo .env para o servidor remoto
-                        sh 'scp .env ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft/.env'
                     }
                 }
             }
