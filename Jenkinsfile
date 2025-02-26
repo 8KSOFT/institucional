@@ -2,41 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Baixar fonte e Limpar Docker') {
+        stage('Baixar fonte') {
             steps {
-                sh '''
-                    ssh ubuntu@172.17.0.1 "
-                        echo '=== Removendo arquivos antigos ===';
-                        rm -rf /home/ubuntu/apps/institucional-8ksoft;
-                        mkdir -p /home/ubuntu/apps/institucional-8ksoft;
-                        
-                        echo '=== Limpando Docker ===';
-                        sudo docker compose -f /home/ubuntu/apps/institucional-8ksoft/docker-compose.yml down --rmi all --remove-orphans;
-                        sudo docker system prune -f;
-                    "
-                    
-                    echo '=== Copiando novos arquivos ===';
-                    scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft
-                '''
+                    sh 'ssh ubuntu@172.17.0.1 "rm -rf /home/ubuntu/apps/institucional-8ksoft"'
+                    sh 'ssh ubuntu@172.17.0.1 "mkdir -p /home/ubuntu/apps/institucional-8ksoft"'
+                    sh 'scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft'
             }
         }
-
-        stage('Definir Ambiente e Configurar .env') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
-                        def appPath = '/home/ubuntu/apps/institucional-8ksoft'
-                        sh """
-                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env"
-                        """
-                        
-                        // Verificar conteúdo do arquivo
-                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env'"
-                    }
-                }
-            }
-        }
-        stage('Remover docker app') {
+         stage('Remover docker app') {
             steps {
                         sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose down --rmi local"'
             }
@@ -46,7 +19,6 @@ pipeline {
                         sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft; docker compose up --build -d"'
             }
         }
-
         stage('Avisar') {
             steps {
               script {
@@ -73,6 +45,6 @@ pipeline {
                 )
                }  
             }
-        }
+      }
     }
 }
