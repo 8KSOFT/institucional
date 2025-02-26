@@ -9,36 +9,36 @@ pipeline {
                 sh 'scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft'
             }
         }
-        stage('Adicionar variáveis de ambiente') {
+
+        stage('Adicionar variável de ambiente') {
             steps {
                 script {
                     // Usar withCredentials para injetar a variável de ambiente
                     withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
-                        // Adicionar a variável ao arquivo .env no servidor remoto
-                        // sh """
-                        //     ssh ubuntu@172.17.0.1 "echo 'NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}' >> /home/ubuntu/apps/institucional-8ksoft/.env"
-                        // """
-                    writeFile file: '.env', text: """
-                        SERVER_DEPLOY_IP=${env.SERVER_DEPLOY_IP}
-                        NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
-                    """
-                    writeFile file: '.env.local', text: """
-                        NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
-                    """    
+                        // Criar o arquivo .env localmente
+                        writeFile file: '.env', text: """
+                            NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
+                        """
+
+                        // Enviar o arquivo .env para o servidor remoto
+                        sh 'scp .env ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft/.env'
                     }
                 }
             }
         }
+
         stage('Remover docker app') {
             steps {
                 sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose down --rmi local"'
             }
         }
+
         stage('Build e Inicialização') {
             steps {
                 sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose up --build -d"'
             }
         }
+
         stage('Avisar') {
             steps {
                 script {
