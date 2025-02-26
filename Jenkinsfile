@@ -15,8 +15,8 @@ pipeline {
                 script {
                     // Usar withCredentials para injetar a variável de ambiente
                     withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
-                        // Criar o arquivo .env localmente
-                        writeFile file: '.env', text: """
+                        // Criar o arquivo .env.local localmente
+                        writeFile file: '.env.local', text: """
                             NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
                         """
                     }
