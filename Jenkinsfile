@@ -2,21 +2,30 @@ pipeline {
     agent any
 
     stages {
-        stage('Baixar fonte') {
+        stage('Baixar fonte e Limpar Docker') {
             steps {
-                    sh 'ssh ubuntu@172.17.0.1 "rm -rf /home/ubuntu/apps/institucional-8ksoft"'
-                    sh 'ssh ubuntu@172.17.0.1 "mkdir -p /home/ubuntu/apps/institucional-8ksoft"'
-                    sh 'scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft'
+                sh '''
+                    ssh ubuntu@172.17.0.1 "
+                        echo '=== Removendo arquivos antigos ===';
+                        rm -rf /home/ubuntu/apps/institucional-8ksoft;
+                        mkdir -p /home/ubuntu/apps/institucional-8ksoft;
+                        
+                        echo '=== Limpando Docker ===';
+                        sudo docker compose -f /home/ubuntu/apps/institucional-8ksoft/docker-compose.yml down --rmi all --remove-orphans;
+                        sudo docker system prune -f;
+                    "
+                    
+                    echo '=== Copiando novos arquivos ===';
+                    scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft
+                '''
             }
         }
+
         stage('Definir Ambiente e Configurar .env') {
             steps {
                 script {
-                    // Lendo a credencial do Resend usando withCredentials
                     withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
                         def appPath = '/home/ubuntu/apps/institucional-8ksoft'
-                        
-                        // Criar arquivo .env.local no servidor
                         sh """
                             ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env"
                         """
@@ -37,6 +46,7 @@ pipeline {
                         sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft; docker compose up --build -d"'
             }
         }
+
         stage('Avisar') {
             steps {
               script {
@@ -63,6 +73,6 @@ pipeline {
                 )
                }  
             }
-      }
+        }
     }
 }
