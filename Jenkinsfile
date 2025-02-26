@@ -9,7 +9,26 @@ pipeline {
                     sh 'scp -r /var/jenkins_home/workspace/institucional-8ksoft/. ubuntu@172.17.0.1:/home/ubuntu/apps/institucional-8ksoft'
             }
         }
-         stage('Remover docker app') {
+        stage('Definir Ambiente e Configurar .env') {
+            steps {
+                script {
+                    // Lendo a credencial do Resend usando withCredentials
+                    withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
+                        def appPath = '/home/ubuntu/apps/institucional-8ksoft'
+                        
+                        // Criar arquivo .env no servidor
+                        sh """
+                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env"
+                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_BACKEND_URL=http://institucional-api.8ksoft:8532' >> .env"
+                        """
+                        
+                        // Verificar conteúdo do arquivo
+                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env'"
+                    }
+                }
+            }
+        }
+        stage('Remover docker app') {
             steps {
                         sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose down --rmi local"'
             }
