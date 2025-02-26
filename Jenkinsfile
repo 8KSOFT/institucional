@@ -15,16 +15,23 @@ pipeline {
                     // Usar withCredentials para injetar a variável de ambiente
                     withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
                         // Adicionar a variável ao arquivo .env no servidor remoto
-                        sh """
-                            ssh ubuntu@172.17.0.1 "echo 'NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}' >> /home/ubuntu/apps/institucional-8ksoft/.env"
-                        """
+                        // sh """
+                        //     ssh ubuntu@172.17.0.1 "echo 'NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}' >> /home/ubuntu/apps/institucional-8ksoft/.env"
+                        // """
+                    writeFile file: '.env', text: """
+                        SERVER_DEPLOY_IP=${env.SERVER_DEPLOY_IP}
+                        NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
+                    """
+                    writeFile file: '.env.local', text: """
+                        NEXT_PUBLIC_RESEND_API_KEY=${env.NEXT_PUBLIC_RESEND_API_KEY}
+                    """    
                     }
                 }
             }
         }
         stage('Remover docker app') {
             steps {
-                sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose down --rmi all --volumes --remove-orphans"'
+                sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/institucional-8ksoft && sudo docker compose down --rmi local"'
             }
         }
         stage('Build e Inicialização') {
