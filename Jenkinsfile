@@ -16,14 +16,13 @@ pipeline {
                     withCredentials([string(credentialsId: 'NEXT_PUBLIC_RESEND_API_KEY', variable: 'NEXT_PUBLIC_RESEND_API_KEY')]) {
                         def appPath = '/home/ubuntu/apps/institucional-8ksoft'
                         
-                        // Criar arquivo .env no servidor
+                        // Criar arquivo .env.local no servidor
                         sh """
-                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env"
-                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_BACKEND_URL=http://institucional-api.8ksoft:8532' >> .env"
+                            ssh ubuntu@172.17.0.1 "cd ${appPath} && echo 'NEXT_PUBLIC_RESEND_API_KEY=${NEXT_PUBLIC_RESEND_API_KEY}' > .env.local"
                         """
                         
                         // Verificar conteúdo do arquivo
-                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env'"
+                        sh "ssh ubuntu@172.17.0.1 'cat ${appPath}/.env.local'"
                     }
                 }
             }
