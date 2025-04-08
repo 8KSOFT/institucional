@@ -15,6 +15,7 @@ const config: Config = {
         primary: 'var(--primary-color)',
         background: 'var(--background-color)',
         text: 'var(--text-color)',
+        bgGrayShadow: 'rgba(70, 70, 70, 0.7)',
       },
       backgroundImage: {
         'circuit-pattern': "url('/circuit-pattern.svg')",

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import Header from './components/Header/Header';
+import { MenuProvider } from './context/MenuProvider';
 
 import './globals.css';
 
@@ -20,9 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR">
       <body className="relative bg-background">
+        <MenuProvider>
         <ScrollProgress />
         <Header />
-        {children}
+          {children}
+        </MenuProvider>
       </body>
     </html>
   );

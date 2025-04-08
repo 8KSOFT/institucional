@@ -1,12 +1,19 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
+import { MenuContext } from '@/app/context/MenuProvider';
+import MenuMobile from '../MenuMobile/MenuMobile';
+import MenuDesktop from '../MenuDesktop/MenuDesktop';
+import HamburgerIcon from '../HamburgerIcon/HambugerIcon';
+import { useMediaQuery } from 'react-responsive';
 
 function Header() {
   const router = useRouter();
   const pathname = usePathname();
+  const { isOpen, toggleMenu } = useContext(MenuContext);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -37,44 +44,6 @@ function Header() {
     }
   };
 
-  const menuItems = [
-    {
-      label: 'Clientes',
-      href: '#clients',
-      onClick: () => handleNavigation('clients'),
-    },
-    {
-      label: 'Serviços',
-      href: '#services',
-      onClick: () => handleNavigation('services'),
-    },
-    {
-      label: 'Desenvolvimento',
-      href: '#development',
-      onClick: () => handleNavigation('development'),
-    },
-    {
-      label: 'Infraestrutura',
-      href: '#infrastructure',
-      onClick: () => handleNavigation('infrastructure'),
-    },
-    {
-      label: 'Dados',
-      href: '#data',
-      onClick: () => handleNavigation('data'),
-    },
-    {
-      label: 'Sobre',
-      href: '#about',
-      onClick: () => handleNavigation('about'),
-    },
-    {
-      label: 'Contato',
-      href: '#contact',
-      onClick: () => handleNavigation('contact'),
-    },
-  ];
-
   const onHeroClick = () => handleNavigation('hero');
 
   return (
@@ -91,35 +60,17 @@ function Header() {
             />
           </a>
         </div>
-        <ul className="hidden md:flex space-x-8">
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a
-                onClick={item.onClick}
-                className={`cursor-pointer ${
-                  item.href === '#contact'
-                    ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'
-                    : 'hover:text-primary transition-colors'
-                }`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        {/* Menu Mobile - Pode ser expandido em um componente separado */}
-        <button className="md:hidden text-primary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        
+        <MenuDesktop />
+
+        {isMobile && <button
+          className="w-12 h-12 p-2 z-50"
+          onClick={() => toggleMenu()}
+        >
+          <HamburgerIcon isOpen={isOpen} />
+        </button>}
       </nav>
+      {isOpen && isMobile && <MenuMobile />}
     </header>
   );
 }
