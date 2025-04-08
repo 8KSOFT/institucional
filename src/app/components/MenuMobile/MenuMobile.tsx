@@ -69,7 +69,7 @@ const MenuMobile = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 w-full h-[300px] bg-background/80 backdrop-blur-sm z-40"
+      className="fixed top-0 left-0 w-full h-[320px] bg-background backdrop-blur-sm z-40"
     >
       <div className="flex flex-col items-center justify-center h-full">
         <button className="absolute top-4 right-4" onClick={toggleMenu}>
