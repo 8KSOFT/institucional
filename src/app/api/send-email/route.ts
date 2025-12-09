@@ -1,13 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
     const { name, email, message } = body;
+
+    const apiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: 'Missing RESEND API key' }, { status: 500 });
+    }
+
+    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: '8KSOFT Site <noreply@8ksoft.com>',
