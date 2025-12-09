@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-background border-t border-zinc-800">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start justify-start gap-4">
             <Image src="/images/logotipos/LOGOTIPO-8KSOFT-02.png" alt="8KSOFT" width={150} height={100} />
             <p className="text-gray-400">Tecnologia segura, robusta e inovadora para o seu negócio.</p>
@@ -55,6 +55,26 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold text-gray-300 mb-4">Parceiros</h4>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.kaspersky.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src="/images/logotipos/logo-kaspersky.jpg"
+                  alt="Kaspersky"
+                  width={150}
+                  height={60}
+                  className="object-contain"
+                />
+              </a>
+            </div>
           </div>
 
           <div>
