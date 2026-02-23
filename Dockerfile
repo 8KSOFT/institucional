@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --legacy-peer-deps --no-audit --no-fund
 
 COPY . .
 # COPY --from=base /app/.next .next
@@ -22,4 +22,4 @@ RUN npm run build
 
 EXPOSE 8530
 
-CMD ["pm2-runtime", "start", "npm", "--name", "institucional-8ksoft", "--", "run", "build"]
+CMD ["pm2-runtime", "start", "npm", "--name", "institucional-8ksoft", "--", "run", "start"]
