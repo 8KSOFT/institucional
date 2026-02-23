@@ -1,8 +1,7 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import importPlugin from 'eslint-plugin-import';
+// plugins removed to avoid peer conflicts with ESLint 10
 
 export default [
   {
@@ -24,13 +23,9 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
-      'jsx-a11y': jsxA11yPlugin,
-      import: importPlugin,
     },
     rules: {
       ...(tsPlugin.configs.recommended?.rules ?? {}),
-      ...(jsxA11yPlugin.configs.recommended?.rules ?? {}),
-      ...(importPlugin.configs.recommended?.rules ?? {}),
       'no-undef': 'off',
       '@typescript-eslint/triple-slash-reference': 'off',
     },
@@ -38,12 +33,7 @@ export default [
       react: {
         version: 'detect',
       },
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-          project: './tsconfig.json',
-        },
-      },
+      // import resolver config removed with plugin removal
     },
   },
 ];
