@@ -1,12 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { IHamburgerIconProps } from '@/app/interfaces/IHamburgerIcon';
 
-interface HamburgerIconProps {
-  isOpen: boolean;
-}
-
-const HamburgerIcon = ({ isOpen }: HamburgerIconProps) => {
+const HamburgerIcon = ({ isOpen }: IHamburgerIconProps) => {
   const lineVariants = {
     closed: {
       rotate: 0,

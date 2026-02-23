@@ -1,7 +1,7 @@
 'use client';
-import FadeIn from '../Animation/FadeIn';
+import FadeIn from '@/app/components/Animation/FadeIn';
 import { motion } from 'framer-motion';
-import ClientOnly from '../ClientOnly/ClientOnly';
+import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
 
 export default function DataServices() {
   return (

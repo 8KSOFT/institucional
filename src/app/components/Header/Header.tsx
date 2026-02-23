@@ -4,9 +4,9 @@ import React, { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { MenuContext } from '@/app/context/MenuProvider';
-import MenuMobile from '../MenuMobile/MenuMobile';
-import MenuDesktop from '../MenuDesktop/MenuDesktop';
-import HamburgerIcon from '../HamburgerIcon/HambugerIcon';
+import MenuMobile from '@/app/components/MenuMobile/MenuMobile';
+import MenuDesktop from '@/app/components/MenuDesktop/MenuDesktop';
+import HamburgerIcon from '@/app/components/HamburgerIcon/HambugerIcon';
 import { useMediaQuery } from 'react-responsive';
 
 function Header() {
@@ -50,7 +50,13 @@ function Header() {
     <header className="fixed w-[100vw] top-0 bg-background/80 backdrop-blur-sm z-50 border-b border-zinc-800">
       <nav className="h-[60px] text-text container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-primary flex items-center cursor-pointer">
-          <a onClick={onHeroClick}>
+          <a
+            href="#hero"
+            onClick={(event) => {
+              event.preventDefault();
+              onHeroClick();
+            }}
+          >
             <Image
               src="/images/logotipos/LOGOTIPO-8KSOFT-02.png"
               alt="8KSOFT"
@@ -60,15 +66,14 @@ function Header() {
             />
           </a>
         </div>
-        
+
         <MenuDesktop />
 
-        {isMobile && <button
-          className="w-12 h-12 p-2 z-50"
-          onClick={() => toggleMenu()}
-        >
-          <HamburgerIcon isOpen={isOpen} />
-        </button>}
+        {isMobile && (
+          <button className="w-12 h-12 p-2 z-50" onClick={() => toggleMenu()}>
+            <HamburgerIcon isOpen={isOpen} />
+          </button>
+        )}
       </nav>
       {isOpen && isMobile && <MenuMobile />}
     </header>

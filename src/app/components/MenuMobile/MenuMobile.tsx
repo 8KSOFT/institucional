@@ -90,8 +90,12 @@ const MenuMobile = () => {
               whileTap={{ scale: 0.95 }}
               className="inline-block w-full text-center"
             >
-              <a 
-                onClick={item.onClick}
+              <a
+                href={item.href}
+                onClick={(event) => {
+                  event.preventDefault();
+                  item.onClick();
+                }}
                 className={`block w-full px-2 cursor-pointer ${
                   item.href === '#contact'
                     ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'

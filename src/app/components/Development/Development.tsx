@@ -1,5 +1,5 @@
 'use client';
-import FadeIn from '../Animation/FadeIn';
+import FadeIn from '@/app/components/Animation/FadeIn';
 
 export default function Development() {
   return (

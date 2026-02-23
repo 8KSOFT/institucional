@@ -1,14 +1,8 @@
 import { useState } from 'react';
-
-interface ContactFormState {
-  name: string;
-  email: string;
-  message: string;
-  status: 'idle' | 'sending' | 'success' | 'error';
-}
+import { IContactFormState } from '@/app/interfaces/IContactForm';
 
 export function useContactForm() {
-  const [formState, setFormState] = useState<ContactFormState>({
+  const [formState, setFormState] = useState<IContactFormState>({
     name: '',
     email: '',
     message: '',

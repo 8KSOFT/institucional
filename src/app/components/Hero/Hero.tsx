@@ -1,6 +1,6 @@
-import ClientOnly from '../ClientOnly/ClientOnly';
-import FadeIn from '../Animation/FadeIn';
-import BinaryAnimation from '../BinaryAnimation/BinaryAnimation';
+import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
+import FadeIn from '@/app/components/Animation/FadeIn';
+import BinaryAnimation from '@/app/components/BinaryAnimation/BinaryAnimation';
 import Image from 'next/image';
 
 export default function Hero() {

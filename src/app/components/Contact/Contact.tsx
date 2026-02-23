@@ -1,8 +1,8 @@
 'use client';
 
 import { useContactForm } from '@/hooks/useContactForm';
-import ClientOnly from '../ClientOnly/ClientOnly';
-import FadeIn from '../Animation/FadeIn';
+import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
+import FadeIn from '@/app/components/Animation/FadeIn';
 import { motion } from 'framer-motion';
 
 export default function Contact() {

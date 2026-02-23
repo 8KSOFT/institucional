@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
-import ScrollProgress from './components/ScrollProgress/ScrollProgress';
-import Header from './components/Header/Header';
-import { MenuProvider } from './context/MenuProvider';
+import ScrollProgress from '@/app/components/ScrollProgress/ScrollProgress';
+import Header from '@/app/components/Header/Header';
+import { MenuProvider } from '@/app/context/MenuProvider';
 
-import './globals.css';
+import '@/app/globals.css';
 
 // import { Inter } from 'next/font/google';
 // const inter = Inter({ subsets: ['latin'] });

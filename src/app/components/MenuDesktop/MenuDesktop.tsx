@@ -66,7 +66,11 @@ const MenuDesktop = () => {
       {menuItems.map((item) => (
         <li key={item.href}>
           <a
-            onClick={item.onClick}
+            href={item.href}
+            onClick={(event) => {
+              event.preventDefault();
+              item.onClick();
+            }}
             className={`cursor-pointer ${
               item.href === '#contact'
                 ? 'px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors'

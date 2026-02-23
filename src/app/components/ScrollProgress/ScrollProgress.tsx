@@ -1,6 +1,6 @@
 'use client';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import ClientOnly from '../ClientOnly/ClientOnly';
+import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
 
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();

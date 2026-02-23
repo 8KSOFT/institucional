@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ClientOnly from '../ClientOnly/ClientOnly';
-import FadeIn from '../Animation/FadeIn';
+import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
+import FadeIn from '@/app/components/Animation/FadeIn';
 import Image from 'next/image';
 // import { useMediaQuery } from '@/hooks/useMediaQuery';
 

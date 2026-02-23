@@ -1,12 +1,12 @@
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Footer from './components/Footer/Footer';
-import Contact from './components/Contact/Contact';
-import Services from './components/ServicesComponent/Services';
-import Development from './components/Development/Development';
-import DataServices from './components/DataServices/DataServices';
-import Infrastructure from './components/Infrastructure/Infrastructure';
-import ClientsComponent from './components/ClientsComponent/ClientsComponent';
+import Hero from '@/app/components/Hero/Hero';
+import About from '@/app/components/About/About';
+import Footer from '@/app/components/Footer/Footer';
+import Contact from '@/app/components/Contact/Contact';
+import Services from '@/app/components/ServicesComponent/Services';
+import Development from '@/app/components/Development/Development';
+import DataServices from '@/app/components/DataServices/DataServices';
+import Infrastructure from '@/app/components/Infrastructure/Infrastructure';
+import ClientsComponent from '@/app/components/ClientsComponent/ClientsComponent';
 
 export default function Home() {
   return (
