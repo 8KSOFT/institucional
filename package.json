@@ -10,17 +10,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.3",
     "dotenv": "^16.4.7",
     "framer-motion": "^11.18.1",
     "next": "15.5.12",
+    "nodemailer": "^9.0.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-responsive": "^10.0.1",
-    "resend": "^4.2.0"
+    "react-responsive": "^10.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "8.56.0",

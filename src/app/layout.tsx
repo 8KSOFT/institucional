@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import ScrollProgress from '@/app/components/ScrollProgress/ScrollProgress';
 import Header from '@/app/components/Header/Header';
+import Analytics from '@/app/components/Analytics/Analytics';
+import CookieConsent from '@/app/components/CookieConsent/CookieConsent';
 import { MenuProvider } from '@/app/context/MenuProvider';
 
 import '@/app/globals.css';
@@ -26,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
           {children}
         </MenuProvider>
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );

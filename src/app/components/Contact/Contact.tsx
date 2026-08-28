@@ -1,12 +1,13 @@
 'use client';
 
 import { useContactForm } from '@/hooks/useContactForm';
+import Turnstile from '@/app/components/Turnstile/Turnstile';
 import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
 import FadeIn from '@/app/components/Animation/FadeIn';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const { formState, setFormState, handleSubmit } = useContactForm();
+  const { formState, setFormState, handleSubmit, onTurnstileVerify, turnstileResetSignal } = useContactForm();
 
   return (
     <ClientOnly>
@@ -162,6 +163,8 @@ export default function Contact() {
                       required
                     />
                   </motion.div>
+
+                  <Turnstile onVerify={onTurnstileVerify} resetSignal={turnstileResetSignal} />
 
                   <motion.button
                     type="submit"

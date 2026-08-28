@@ -81,7 +81,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-gray-300 mb-4">Contato</h4>
             <ul className="space-y-2">
               <li className="text-gray-400">
-                <a href="mailto:contato@8ksoft.com.br" className="hover:text-primary transition-colors">
+                <a href="mailto:contato@8ksoft.com" className="hover:text-primary transition-colors">
                   contato@8ksoft.com
                 </a>
               </li>
