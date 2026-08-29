@@ -57,6 +57,8 @@ const MenuMobile = () => {
     { label: "Clientes", href: "#clients", onClick: () => handleNavigation('clients') },
     { label: "Serviços", href: "#services", onClick: () => handleNavigation('services') },
     { label: "Desenvolvimento", href: "#development", onClick: () => handleNavigation('development') },
+    { label: "Projetos", href: "/projects", onClick: () => { router.push('/projects'); toggleMenu(); } },
+    { label: "Produtos", href: "/products", onClick: () => { router.push('/products'); toggleMenu(); } },
     { label: "Infraestrutura", href: "#infrastructure", onClick: () => handleNavigation('infrastructure') },
     { label: "Dados", href: "#data", onClick: () => handleNavigation('data') },
     { label: "Sobre", href: "#about", onClick: () => handleNavigation('about') },

@@ -100,13 +100,20 @@ export default function Development() {
         </div>
 
         <FadeIn direction="up" delay={0.4}>
-          <div className="mt-12 text-center">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/projects"
               className="inline-block px-6 py-3 border border-primary/20 text-primary rounded-lg 
                         hover:border-primary/40 transition-colors"
             >
               Ver Nossos Projetos
+            </a>
+            <a
+              href="/products"
+              className="inline-block px-6 py-3 bg-primary text-background rounded-lg 
+                        hover:bg-primary/90 transition-colors"
+            >
+              Ver Nossos Produtos
             </a>
           </div>
         </FadeIn>

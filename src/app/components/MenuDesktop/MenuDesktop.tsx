@@ -40,6 +40,16 @@ const MenuDesktop = () => {
       onClick: () => handleNavigation('development'),
     },
     {
+      label: 'Projetos',
+      href: '/projects',
+      onClick: () => router.push('/projects'),
+    },
+    {
+      label: 'Produtos',
+      href: '/products',
+      onClick: () => router.push('/products'),
+    },
+    {
       label: 'Infraestrutura',
       href: '#infrastructure',
       onClick: () => handleNavigation('infrastructure'),
