@@ -99,6 +99,28 @@ export default function Contact() {
             </FadeIn>
 
             <FadeIn direction="right">
+              {/* Enviado com sucesso, o formulário sai de cena: sem campos para
+                  reenviar sem querer. Recarregar a página traz o form de volta. */}
+              {formState.status === 'success' ? (
+              <div
+                role="status"
+                aria-live="polite"
+                className="bg-background/50 p-8 rounded-lg border border-primary/20 text-center"
+              >
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                  <svg className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-semibold text-primary">Mensagem enviada com sucesso!</h3>
+                <p className="text-gray-300">
+                  Recebemos seu contato e vamos responder no e-mail informado. Obrigado por falar com a 8KSOFT.
+                </p>
+                <p className="mt-4 text-sm text-gray-500">
+                  Para enviar outra mensagem, atualize a página.
+                </p>
+              </div>
+              ) : (
               <form onSubmit={handleSubmit} className="bg-background/50 p-8 rounded-lg border border-primary/20">
                 <div className="space-y-6">
                   {[
@@ -181,14 +203,14 @@ export default function Contact() {
                     {formState.status === 'sending' ? 'Enviando...' : 'Enviar Mensagem'}
                   </motion.button>
 
-                  {formState.status === 'success' && (
-                    <div className="text-green-500 text-center mt-4">Mensagem enviada com sucesso!</div>
-                  )}
                   {formState.status === 'error' && (
-                    <div className="text-red-500 text-center mt-4">Erro ao enviar mensagem. Tente novamente.</div>
+                    <div role="alert" className="text-red-500 text-center mt-4">
+                      Erro ao enviar mensagem. Tente novamente.
+                    </div>
                   )}
                 </div>
               </form>
+              )}
             </FadeIn>
           </div>
         </div>
