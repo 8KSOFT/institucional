@@ -68,11 +68,6 @@ export default function PrivacidadePage() {
             .
           </p>
         </div>
-
-        <p className="text-sm text-gray-500">
-          Este texto é um modelo inicial e deve ser revisado por um profissional jurídico antes da publicação
-          definitiva, para garantir total conformidade com a LGPD e a realidade do tratamento de dados da 8KSOFT.
-        </p>
       </div>
     </section>
   );
