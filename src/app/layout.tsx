@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: '8KSOFT - Technology Consulting',
   description: 'Consultoria em tecnologia e desenvolvimento de software',
+  alternates: { canonical: SITE_URL },
   icons: {
     icon: [{ url: '/favicon.ico', sizes: 'any' }],
   },

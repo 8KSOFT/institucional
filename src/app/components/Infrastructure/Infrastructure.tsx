@@ -64,6 +64,14 @@ export default function Infrastructure() {
               Combinamos expertise técnica, anos de experiência e uma abordagem orientada a resultados. Nosso objetivo é
               transformar sua infraestrutura em um pilar estratégico para o sucesso do seu negócio.
             </p>
+            <p className="mt-4 text-gray-300 text-center">
+              Não é teoria: operamos hoje a infraestrutura Oracle Cloud que mantém em produção os sistemas da Quebrando
+              as Bancas e da Auroque Investimentos.{' '}
+              <a href="/projects" className="text-primary underline hover:text-primary/80">
+                Veja os projetos
+              </a>
+              .
+            </p>
           </div>
         </FadeIn>
       </div>

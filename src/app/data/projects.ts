@@ -6,17 +6,22 @@ const projects: IProject[] = [
     description: 'Plataforma completa de EAD, com uso de Inteligência artificial para correções de redações e acompanhamento de estudos dos alunos.',
     client: 'Quebrando as Bancas',
     image: '/images/projects/plataforma-qb/project-plataforma-qb-1.png',
-    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker'],
+    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker', 'Infraestrutura Gerenciada'],
     url: 'https://plataforma.quebrandoasbancas.com/',
     detailedDescription:
-      'Uma plataforma inovadora para concurseiros, oferecendo aulas e simulados com correção de redações por IA em tempo real. Esta solução revoluciona a forma de estudar, proporcionando uma experiência de aprendizado personalizada e eficiente.',
+      'Uma plataforma inovadora para concurseiros, oferecendo aulas e simulados com correção de redações por IA em tempo real. Esta solução revoluciona a forma de estudar, proporcionando uma experiência de aprendizado personalizada e eficiente. A 8KSOFT também opera a infraestrutura em Oracle Cloud que mantém a plataforma no ar, com monitoramento contínuo.',
     images: [
       '/images/projects/plataforma-qb/project-plataforma-qb-1.png',
       '/images/projects/plataforma-qb/project-plataforma-qb-2.png',
       '/images/projects/plataforma-qb/project-plataforma-qb-3.png',
       '/images/projects/plataforma-qb/project-plataforma-qb-4.png',
     ],
-    features: ['Dashboard em tempo real', 'Integração com múltiplos bancos', 'Relatórios personalizados'],
+    features: [
+      'Infraestrutura Oracle Cloud operada e monitorada pela 8KSOFT',
+      'Dashboard em tempo real',
+      'Integração com múltiplos bancos',
+      'Relatórios personalizados',
+    ],
     technologies: [
       'React/Next.js para frontend',
       'Node.js com Express no backend',
@@ -30,15 +35,16 @@ const projects: IProject[] = [
       'Jogo multiplayer online e gratuito para quem estuda para o concurso da Polícia Rodoviária Federal, com questões em tempo real e ranking ao vivo.',
     client: 'Quebrando as Bancas',
     image: '/images/projects/rota191/project-rota191-1.png',
-    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker'],
+    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker', 'Infraestrutura Gerenciada'],
     url: 'https://rota191.com.br',
     detailedDescription:
-      'O Rota191 transforma o estudo para o concurso da PRF em um jogo: os candidatos entram em salas, competem em tempo real com outros concurseiros de todo o Brasil e resolvem questões de provas anteriores e questões inéditas, cobrindo as principais matérias do edital. 100% gratuito e direto do navegador, sem instalação.',
+      'O Rota191 transforma o estudo para o concurso da PRF em um jogo: os candidatos entram em salas, competem em tempo real com outros concurseiros de todo o Brasil e resolvem questões de provas anteriores e questões inéditas, cobrindo as principais matérias do edital. 100% gratuito e direto do navegador, sem instalação. Além do desenvolvimento, a 8KSOFT hospeda e mantém o jogo em produção na Oracle Cloud, incluindo o dimensionamento para os picos de acesso das salas multiplayer.',
     images: [
       '/images/projects/rota191/project-rota191-1.png',
       '/images/projects/rota191/project-rota191-2.png',
     ],
     features: [
+      'Infraestrutura Oracle Cloud operada e monitorada pela 8KSOFT',
       'Salas multiplayer com disputa em tempo real',
       'Questões de provas anteriores e questões inéditas da PRF',
       'Ranking geral ao vivo, com sequência de dias consecutivos jogados',
@@ -57,15 +63,16 @@ const projects: IProject[] = [
       'Plataforma para treinamento contínuo dos Assessores de Investimentos, com gestão de portfólio e leitura de dados de mercado assistida por IA.',
     client: 'Auroque Investimentos',
     image: '/images/projects/auroque-plataforma/project-auroque-plataforma-2.png',
-    tags: ['Next.js', 'Node.js', 'IA', 'Oracle Cloud'],
+    tags: ['Next.js', 'Node.js', 'IA', 'Oracle Cloud', 'Infraestrutura Gerenciada'],
     url: 'https://plataforma.auroqueinvestimentos.com',
     detailedDescription:
-      'Plataforma própria da Auroque Investimentos para o desenvolvimento contínuo dos Assessores já contratados: treinamento com apoio de IA (simulações de ligação com clientes fictícios e devolutiva automática), gestão de portfólio dos clientes, leitura de dados de mercado (ações, fundos, renda fixa) com IA auxiliando na interpretação das informações, e métricas de evolução de cada assessor ao longo do tempo.',
+      'Plataforma própria da Auroque Investimentos para o desenvolvimento contínuo dos Assessores já contratados: treinamento com apoio de IA (simulações de ligação com clientes fictícios e devolutiva automática), gestão de portfólio dos clientes, leitura de dados de mercado (ações, fundos, renda fixa) com IA auxiliando na interpretação das informações, e métricas de evolução de cada assessor ao longo do tempo. A operação da nuvem também é da 8KSOFT: a plataforma roda em infraestrutura Oracle Cloud gerenciada por nós.',
     images: [
       '/images/projects/auroque-plataforma/project-auroque-plataforma-2.png',
       '/images/projects/auroque-plataforma/project-auroque-plataforma-1.png',
     ],
     features: [
+      'Infraestrutura Oracle Cloud operada e monitorada pela 8KSOFT',
       'Treinamento contínuo dos assessores com apoio de IA',
       'Gestão de portfólio dos clientes',
       'Leitura de dados de mercado com IA auxiliando na interpretação',
@@ -84,12 +91,13 @@ const projects: IProject[] = [
       'Plataforma de recrutamento com jornada personalizada de 7 etapas para selecionar novos Assessores de Investimentos.',
     client: 'Auroque Investimentos',
     image: '/images/projects/auroque-selecao/project-auroque-selecao-1.png',
-    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker'],
+    tags: ['Next.js', 'Node.js', 'Oracle Cloud', 'Docker', 'Infraestrutura Gerenciada'],
     url: 'https://selecao.auroqueinvestimentos.com.br/',
     detailedDescription:
-      'Evolução do antigo sistema de agendamento de entrevistas: hoje a Auroque Investimentos conta com uma plataforma própria para conduzir todo o processo seletivo de novos Assessores de Investimentos. Os candidatos criam conta e acompanham uma trajetória personalizada de 7 etapas, enquanto o time de RH gerencia todo o processo de forma centralizada.',
+      'Evolução do antigo sistema de agendamento de entrevistas: hoje a Auroque Investimentos conta com uma plataforma própria para conduzir todo o processo seletivo de novos Assessores de Investimentos. Os candidatos criam conta e acompanham uma trajetória personalizada de 7 etapas, enquanto o time de RH gerencia todo o processo de forma centralizada. A 8KSOFT responde igualmente pela infraestrutura Oracle Cloud em que o sistema roda, do provisionamento ao monitoramento.',
     images: ['/images/projects/auroque-selecao/project-auroque-selecao-1.png'],
     features: [
+      'Infraestrutura Oracle Cloud operada e monitorada pela 8KSOFT',
       'Login e criação de conta para candidatos',
       'Trajetória personalizada de 7 etapas no processo seletivo',
       'Gestão centralizada dos candidatos para o time de RH',
