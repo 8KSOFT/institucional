@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { OG_IMAGE } from '@/app/lib/seo';
+
 // Mesmo motivo do layout de /products: a página é client component e não
 // pode exportar metadata por conta própria.
 export const metadata: Metadata = {
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
     siteName: '8KSOFT',
     locale: 'pt_BR',
     type: 'website',
+    images: [OG_IMAGE],
   },
 };
 

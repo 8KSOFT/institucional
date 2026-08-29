@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { OG_IMAGE } from '@/app/lib/seo';
+
 // A página é client component ('use client') e por isso não pode exportar
 // metadata. Este layout existe só para isso: sem ele a rota herda o título e
 // a descrição do layout raiz e aparece na busca como "8KSOFT - Technology
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
     siteName: '8KSOFT',
     locale: 'pt_BR',
     type: 'website',
+    images: [OG_IMAGE],
   },
 };
 
