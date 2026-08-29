@@ -1,7 +1,6 @@
 'use client';
 
 import FadeIn from '@/app/components/Animation/FadeIn';
-import ClientOnly from '@/app/components/ClientOnly/ClientOnly';
 
 const services = [
   {
@@ -28,46 +27,44 @@ const services = [
 
 export default function Services() {
   return (
-    <ClientOnly>
-      <section id="services" className="container mx-auto px-4 py-20">
-        <FadeIn>
-          <h2 className="text-3xl font-bold text-center mb-4">Nossos Serviços</h2>
-          <p className="text-lg text-center text-gray-300 mb-12">
-            Uma gama completa de serviços tecnológicos projetados para atender às demandas de empresas modernas.
-          </p>
-        </FadeIn>
+    <section id="services" className="container mx-auto px-4 py-20">
+      <FadeIn>
+        <h2 className="text-3xl font-bold text-center mb-4">Nossos Serviços</h2>
+        <p className="text-lg text-center text-gray-300 mb-12">
+          Uma gama completa de serviços tecnológicos projetados para atender às demandas de empresas modernas.
+        </p>
+      </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <FadeIn key={index} direction="up" delay={index * 0.1}>
-              <div
-                className="bg-background/50 p-6 rounded-lg border border-primary/20 
-                          hover:border-primary/40 transition-all group"
-              >
-                <h3 className="text-xl font-semibold mb-3 text-primary">{service.title}</h3>
-                <p className="text-gray-300 mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors"
-                    >
-                      <svg className="w-4 h-4 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-    </ClientOnly>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service, index) => (
+          <FadeIn key={index} direction="up" delay={index * 0.1}>
+            <div
+              className="bg-background/50 p-6 rounded-lg border border-primary/20 
+                        hover:border-primary/40 transition-all group"
+            >
+              <h3 className="text-xl font-semibold mb-3 text-primary">{service.title}</h3>
+              <p className="text-gray-300 mb-4">{service.description}</p>
+              <ul className="space-y-2">
+                {service.features.map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors"
+                  >
+                    <svg className="w-4 h-4 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </section>
   );
 }

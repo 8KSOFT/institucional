@@ -18,9 +18,9 @@ const projects: IProject[] = [
     ],
     features: [
       'Infraestrutura Oracle Cloud operada e monitorada pela 8KSOFT',
-      'Dashboard em tempo real',
-      'Integração com múltiplos bancos',
-      'Relatórios personalizados',
+      'Correção de redações por IA em tempo real',
+      'Aulas e simulados para concurseiros',
+      'Acompanhamento do progresso de estudo de cada aluno',
     ],
     technologies: [
       'React/Next.js para frontend',
