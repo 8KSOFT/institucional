@@ -52,6 +52,33 @@ const projects: IProject[] = [
     ],
   },
   {
+    name: 'Plataforma de Treinamento de Assessores com IA',
+    description:
+      'Plataforma para treinamento contínuo dos Assessores de Investimentos, com gestão de portfólio e leitura de dados de mercado assistida por IA.',
+    client: 'Auroque Investimentos',
+    image: '/images/projects/auroque-plataforma/project-auroque-plataforma-2.png',
+    tags: ['Next.js', 'Node.js', 'IA', 'Oracle Cloud'],
+    url: 'https://plataforma.auroqueinvestimentos.com',
+    detailedDescription:
+      'Plataforma própria da Auroque Investimentos para o desenvolvimento contínuo dos Assessores já contratados: treinamento com apoio de IA (simulações de ligação com clientes fictícios e devolutiva automática), gestão de portfólio dos clientes, leitura de dados de mercado (ações, fundos, renda fixa) com IA auxiliando na interpretação das informações, e métricas de evolução de cada assessor ao longo do tempo.',
+    images: [
+      '/images/projects/auroque-plataforma/project-auroque-plataforma-2.png',
+      '/images/projects/auroque-plataforma/project-auroque-plataforma-1.png',
+    ],
+    features: [
+      'Treinamento contínuo dos assessores com apoio de IA',
+      'Gestão de portfólio dos clientes',
+      'Leitura de dados de mercado com IA auxiliando na interpretação',
+      'Métricas de evolução do assessor',
+    ],
+    technologies: [
+      'React/Next.js para frontend',
+      'Node.js com Express no backend',
+      'IA aplicada à leitura de dados de mercado',
+      'Oracle Cloud para infraestrutura',
+    ],
+  },
+  {
     name: 'Sistema de Seleção de Assessores de Investimentos',
     description:
       'Plataforma de recrutamento com jornada personalizada de 7 etapas para selecionar novos Assessores de Investimentos.',
