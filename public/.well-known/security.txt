@@ -1,0 +1,8 @@
+# security.txt da 8KSOFT — RFC 9116
+# Canal para relatar vulnerabilidade encontrada em sistemas da 8KSOFT.
+# Para assuntos de dados pessoais (LGPD), veja https://8ksoft.com/privacidade
+
+Contact: mailto:contato@8ksoft.com
+Expires: 2027-08-28T00:00:00.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://8ksoft.com/.well-known/security.txt
